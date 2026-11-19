@@ -34,9 +34,13 @@ art assets: every sprite is drawn in code.
 | Repository | What it holds |
 | --- | --- |
 | [maniator/verticopolis](https://github.com/maniator/verticopolis) | The game, the Rust engine, the player's manual and the engine docs. Start here to report a bug or contribute. |
+| [Verticopolis/engine](https://github.com/Verticopolis/engine) | The Rust simulation engine, its WASM package, the conformance lock and the engine docs site. A preview of the split for now. |
+| [Verticopolis/components](https://github.com/Verticopolis/components) | The renderer, the Win95 windows and menus, the procedural sprites and audio, and the engine binding the game builds on. A preview of the split for now. |
 
-The game lives at that address for now and will move into this organization
-later.
+After the 4.x line ships, the game moves into this organization as
+`Verticopolis/web`, and the engine and the components move into their own
+repositories here, each with its full history. Until then, every issue and
+pull request goes to maniator/verticopolis.
 
 ## License
 
