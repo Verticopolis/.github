@@ -1,0 +1,60 @@
+name: Sync labels
+
+# Create or update a repository's labels from its .github/labels.yml.
+# Non-destructive: it creates or updates the listed labels and never deletes a
+# label that isn't listed, so a daily run only puts back a color or
+# description someone changed by hand. The reader is checks/labelList.ts.
+#
+# Every Verticopolis repository calls this workflow from its own
+# .github/workflows/labels.yml (on a push to main that changes its list, daily,
+# and by hand), granting issues: write. This repository runs it for its own
+# labels the same way.
+on:
+  workflow_call:
+  push:
+    branches: [main]
+    paths:
+      - .github/labels.yml
+      - .github/workflows/sync-labels.yml
+      - checks/sync-labels.ts
+      - checks/labelList.ts
+  schedule:
+    - cron: "23 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  sync:
+    name: Sync labels
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Check out the repository's label list
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: repo
+          persist-credentials: false
+          sparse-checkout: .github
+
+      - name: Check out the shared checks
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Verticopolis/.github
+          ref: main
+          path: org
+          persist-credentials: false
+          sparse-checkout: checks
+
+      - name: Set up Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: org/.nvmrc
+
+      - name: Create or update labels
+        run: node org/checks/sync-labels.ts --root repo
