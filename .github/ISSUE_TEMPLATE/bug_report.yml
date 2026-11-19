@@ -1,0 +1,47 @@
+name: 🐛 Bug report
+description: Something in this repository behaves incorrectly or crashes.
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! If it happened while playing at [verticopolis.com](https://verticopolis.com), please report it on [Verticopolis/web](https://github.com/Verticopolis/web/issues/new/choose) instead, where the form asks for the details the game needs.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The release, package version or commit you used.
+      placeholder: "v1.2.0, or a commit like 1a2b3c4"
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: The smallest steps, code or input that shows the bug.
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or error output
+      description: Paste any error output. This is automatically formatted as code.
+      render: shell
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and this is not a duplicate.
+          required: true

@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🎮 Report a problem in the game
+    url: https://github.com/Verticopolis/web/issues/new/choose
+    about: Something wrong while playing at verticopolis.com goes to the game's repository.
+  - name: ⚙️ Report a problem in the engine
+    url: https://github.com/Verticopolis/engine/issues/new/choose
+    about: A rule, price, cap, save or API of the Rust engine or its WebAssembly package.
+  - name: 📖 Engine docs
+    url: https://docs.verticopolis.com
+    about: The engine's guides, for building a frontend or tool on it.
+  - name: 🔐 Report a security vulnerability
+    url: https://github.com/Verticopolis/.github/blob/main/SECURITY.md
+    about: Please report privately through the affected repository's Security tab, never in a public issue.
