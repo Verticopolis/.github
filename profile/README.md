@@ -21,6 +21,15 @@ coveted **TOWER**.
   original game's `.TDT` saves.
 - **Installable and offline** on desktop and phone.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Verticopolis/.github/main/profile/images/desk-day.png" alt="A 33-floor tower at midday on the Windows 95 style desktop, with the Tools, Info and Map windows open" width="720">
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Verticopolis/.github/main/profile/images/tower-night.png" alt="The same tower at night, lights on in the condos and offices" width="360">
+  <img src="https://raw.githubusercontent.com/Verticopolis/.github/main/profile/images/morning-rush.png" alt="Close-up of the morning rush: office workers at their desks and a crowd in the lobby" width="360">
+</p>
+
 ## Under the hood
 
 The simulation is a **Rust** engine compiled to **WebAssembly**, and it is the
@@ -33,19 +42,24 @@ art assets: every sprite is drawn in code.
 
 | Repository | What it holds |
 | --- | --- |
-| [maniator/verticopolis](https://github.com/maniator/verticopolis) | The game, the Rust engine, the player's manual and the engine docs. Start here to report a bug or contribute. |
-| [Verticopolis/engine](https://github.com/Verticopolis/engine) | The Rust simulation engine, its WASM package, the conformance lock and the engine docs site. A preview of the split for now. |
-| [Verticopolis/components](https://github.com/Verticopolis/components) | The renderer, the Win95 windows and menus, the procedural sprites and audio, and the engine binding the game builds on. A preview of the split for now. |
+| [Verticopolis/web](https://github.com/Verticopolis/web) | The game at [verticopolis.com](https://verticopolis.com) and its player's manual. **Start here** to report a bug, suggest an idea or contribute. |
+| [Verticopolis/engine](https://github.com/Verticopolis/engine) | The Rust simulation engine (the `verticopolis-engine` crate), its WebAssembly package `@verticopolis/engine`, the conformance suite and the [engine docs](https://docs.verticopolis.com/). |
+| [Verticopolis/components](https://github.com/Verticopolis/components) | `@verticopolis/components`: the renderer, the Windows 95 windows and menus, the procedural sprites and audio, and the engine binding a frontend builds on. |
 
-After the 4.x line ships, the game moves into this organization as
-`Verticopolis/web`, and the engine and the components move into their own
-repositories here, each with its full history. Until then, every issue and
-pull request goes to maniator/verticopolis.
+The game builds on the components, and both run the engine. Each repository
+was split out of the game's with its full history, so `git log` and
+`git blame` still reach every line's first commit. For a few more days, while
+the game switches over to the published packages, engine and component
+changes are on hold; issues are welcome in every repository now.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Verticopolis/.github/main/profile/images/phone.png" alt="The game on a phone, with the tower filling the screen" width="220">
+</p>
 
 ## License
 
-The **source code** is [MIT](https://github.com/maniator/verticopolis/blob/main/LICENSE).
-The original **art and audio** are [CC BY 4.0](https://github.com/maniator/verticopolis/blob/main/ASSETS-LICENSE.md).
+The **source code** in every repository is [MIT](https://github.com/Verticopolis/web/blob/main/LICENSE).
+The original **art and audio** are [CC BY 4.0](https://github.com/Verticopolis/web/blob/main/ASSETS-LICENSE.md).
 
 The Verticopolis™ name and logo are trademarks of the Verticopolis project.
 Neither license grants permission to use them; you may fork and share the code,
